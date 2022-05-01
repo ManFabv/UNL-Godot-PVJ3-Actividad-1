@@ -1,16 +1,12 @@
-extends KinematicBody2D
+extends Path2D
 
+onready var follow_path = $PathFollow2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var current_offset : float = 0
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+export var speed = 50
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta):
+	current_offset += delta * speed
+	follow_path.offset = current_offset

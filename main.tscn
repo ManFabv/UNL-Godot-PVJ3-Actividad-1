@@ -19,8 +19,9 @@ position = Vector2( 108.528, 242.682 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 108.528, 242.682 )
+offset = Vector2( -2, 12 )
 current = true
 process_mode = 0
 
-[node name="enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 156, 184 )
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 164, 154 )
