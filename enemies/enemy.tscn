@@ -11,7 +11,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
-[node name="Enemy" type="Path2D"]
+[node name="enemy" type="Path2D"]
 curve = SubResource( 2 )
 script = ExtResource( 1 )
 
