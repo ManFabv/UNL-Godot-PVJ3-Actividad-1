@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -61, -11, 0, 0, 0, 0, 11, -11, 0, 0, 0, 0, 11, 36, 0, 0, 0, 0, -60, 36, 0, 0, 0, 0, -100, 57, 0, 0, 0, 0, -100, -39, 0, 0, 0, 0, -61, -11 )
+}
+
+[sub_resource type="Curve2D" id=2]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( -12.4434, 15.4061, 12.4434, -15.4061, -60, -11, -13.0359, -19.8501, 13.0359, 19.8501, 48, -8, 10.0732, -7.99931, -10.0732, 7.99931, 48, 65, 16.5912, 14.221, -16.5912, -14.221, -61, 65, -16.8874, 16.8874, 16.8874, -16.8874, -60, -11 )
+}
 
 [node name="world_01" type="Node2D"]
 
@@ -21,7 +33,18 @@ current = true
 process_mode = 0
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 108.528, 242.682 )
+position = Vector2( 53, 457 )
 
-[node name="enemy" parent="." instance=ExtResource( 3 )]
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy1" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 164, 154 )
+curve = SubResource( 1 )
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 3 )]
+position = Vector2( 424, 81 )
+curve = SubResource( 2 )
+
+[node name="enemy3" parent="enemies" instance=ExtResource( 3 )]
+position = Vector2( -70, 196 )
+curve = SubResource( 2 )
