@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://bullet/bullet.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -27,7 +26,7 @@ _data = {
 
 [node name="tilemap_level_01" type="Node" parent="."]
 
-[node name="TileMap" type="TileMap" parent="tilemap_level_01"]
+[node name="TileMap" type="TileMap" parent="tilemap_level_01" groups=["Level"]]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -42,20 +41,14 @@ process_mode = 0
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 53, 457 )
 
-[node name="enemies" type="Node2D" parent="."]
-
-[node name="enemy1" parent="enemies" instance=ExtResource( 3 )]
+[node name="enemy1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 164, 154 )
 curve = SubResource( 1 )
 
-[node name="enemy2" parent="enemies" instance=ExtResource( 3 )]
+[node name="enemy2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 451, 130 )
 curve = SubResource( 3 )
 
-[node name="enemy3" parent="enemies" instance=ExtResource( 3 )]
+[node name="enemy3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -70, 196 )
 curve = SubResource( 2 )
-
-[node name="bullet" parent="." instance=ExtResource( 4 )]
-position = Vector2( 80, 416 )
-rotation = -1.0472

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemy.png" type="Texture" id=2]
+[ext_resource path="res://bullet/bullet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Curve2D" id=2]
 resource_local_to_scene = true
@@ -18,6 +19,7 @@ radius = 127.004
 [node name="enemy" type="Path2D"]
 curve = SubResource( 2 )
 script = ExtResource( 1 )
+bullet_scene = ExtResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( -60, -11 )
@@ -31,10 +33,16 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="PathFollow2D/KinematicBody2D"]
 texture = ExtResource( 2 )
 
+[node name="SpawnPointNode2D" type="Node2D" parent="PathFollow2D/KinematicBody2D"]
+
 [node name="DetectionArea2D" type="Area2D" parent="PathFollow2D"]
 
 [node name="DetectionCollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/DetectionArea2D"]
 shape = SubResource( 4 )
 
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="PathFollow2D/DetectionArea2D" to="." method="_on_DetectionArea2D_body_entered"]
 [connection signal="body_exited" from="PathFollow2D/DetectionArea2D" to="." method="_on_DetectionArea2D_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
