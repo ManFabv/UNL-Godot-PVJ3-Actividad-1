@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
@@ -22,6 +22,18 @@ _data = {
 "points": PoolVector2Array( -12.4434, 15.4061, 12.4434, -15.4061, -60, -11, -13.0359, -19.8501, 13.0359, 19.8501, 48, -8, 10.0732, -7.99931, -10.0732, 7.99931, 48, 65, 16.5912, 14.221, -16.5912, -14.221, -61, 65, -16.8874, 16.8874, 16.8874, -16.8874, -60, -11 )
 }
 
+[sub_resource type="Curve2D" id=4]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -82, 11, 0, 0, 0, 0, -82, -59, 0, 0, 0, 0, 11, 36, 0, 0, 0, 0, -60, 36, 0, 0, 0, 0, -82, 36, 0, 0, 0, 0, -82, 11 )
+}
+
+[sub_resource type="Curve2D" id=5]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -77, -19, 0, 0, 0, 0, -133, -38, 0, 0, 0, 0, -152, 10, 0, 0, 0, 0, -113, 92, 0, 0, 0, 0, -48, 80, 0, 0, 0, 0, -60, -11, 0, 0, 0, 0, -77, -19 )
+}
+
 [node name="world_01" type="Node2D"]
 
 [node name="tilemap_level_01" type="Node" parent="."]
@@ -39,16 +51,30 @@ current = true
 process_mode = 0
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 53, 457 )
+position = Vector2( 475, 463 )
 
-[node name="enemy1" parent="." instance=ExtResource( 3 )]
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy1" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 164, 154 )
 curve = SubResource( 1 )
+speed = 60
 
-[node name="enemy2" parent="." instance=ExtResource( 3 )]
+[node name="enemy2" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( 451, 130 )
 curve = SubResource( 3 )
+speed = 80
 
-[node name="enemy3" parent="." instance=ExtResource( 3 )]
+[node name="enemy3" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( -70, 196 )
 curve = SubResource( 2 )
+speed = 110
+
+[node name="enemy4" parent="enemies" instance=ExtResource( 3 )]
+position = Vector2( 136, 390 )
+curve = SubResource( 4 )
+speed = 80
+
+[node name="enemy5" parent="enemies" instance=ExtResource( 3 )]
+position = Vector2( -125, 371 )
+curve = SubResource( 5 )

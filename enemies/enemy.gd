@@ -24,6 +24,7 @@ func _physics_process(delta):
 func _on_DetectionArea2D_body_entered(body):
 	if body.is_in_group(PLAYER_GROUP):
 		player_target = body
+		shoot()
 		shoot_timer.start()
 
 func _on_DetectionArea2D_body_exited(body):
@@ -32,6 +33,9 @@ func _on_DetectionArea2D_body_exited(body):
 		shoot_timer.stop()
 
 func _on_ShootTimer_timeout():
+	shoot()
+	
+func shoot():
 	var bullet = bullet_scene.instance()
 	get_owner().add_child(bullet)
 	bullet.set_target_and_forward_direction(bullet_spawn_point.global_position, player_target)
