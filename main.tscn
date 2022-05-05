@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://box/box.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -78,3 +79,6 @@ speed = 80
 [node name="enemy5" parent="enemies" instance=ExtResource( 3 )]
 position = Vector2( -125, 371 )
 curve = SubResource( 5 )
+
+[node name="box" parent="." instance=ExtResource( 4 )]
+position = Vector2( 399, 423 )

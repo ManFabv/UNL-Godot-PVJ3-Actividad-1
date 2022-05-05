@@ -9,6 +9,7 @@ extents = Vector2( 7.9, 7.9 )
 [node name="player" type="KinematicBody2D" groups=["Player"]]
 collision/safe_margin = 0.01
 script = ExtResource( 1 )
+push_force = 70.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
