@@ -87,7 +87,7 @@ curve = SubResource( 5 )
 position = Vector2( 399, 423 )
 
 [node name="target" parent="." instance=ExtResource( 5 )]
-position = Vector2( 398, 373 )
+position = Vector2( -261, 79 )
 
 [node name="game_manager" parent="." instance=ExtResource( 6 )]
 

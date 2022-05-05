@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/enemy.png" type="Texture" id=2]
 [ext_resource path="res://bullet/bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/enemy_tool_mode.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=2]
 resource_local_to_scene = true
@@ -32,6 +33,7 @@ shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D/KinematicBody2D"]
 texture = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="SpawnPointNode2D" type="Node2D" parent="PathFollow2D/KinematicBody2D"]
 
@@ -41,7 +43,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 4 )
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.75
 
 [connection signal="body_entered" from="PathFollow2D/DetectionArea2D" to="." method="_on_DetectionArea2D_body_entered"]
 [connection signal="body_exited" from="PathFollow2D/DetectionArea2D" to="." method="_on_DetectionArea2D_body_exited"]
