@@ -9,6 +9,10 @@ const FLOOR_MAX_ANGLE = PI/4
 const MAX_SLIDES = 4
 const BOXES_GROUP = "Boxes"
 
+func _ready():
+	EventManager.subscribe_to_player_won(self, "_on_game_finish")
+	EventManager.subscribe_to_player_lose(self, "_on_game_finish")
+
 func _process(_delta):
 	motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	motion.y = Input.get_action_strength("move_bottom") - Input.get_action_strength("move_up")
@@ -26,3 +30,7 @@ func process_push_boxes():
 		
 		if current_collider.is_in_group(BOXES_GROUP):
 			current_collider.apply_central_impulse(-current_collision.normal * push_force)
+
+func _on_game_finish():
+	set_process(false)
+	set_physics_process(false)

@@ -4,4 +4,4 @@ const BOXES_GROUP = "Boxes"
 
 func _on_target_body_entered(body):
 	if body.is_in_group(BOXES_GROUP):
-		print("WIN")
+		EventManager.publish_player_won()
