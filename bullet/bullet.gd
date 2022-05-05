@@ -18,7 +18,7 @@ func _physics_process(delta):
 
 func _on_DetectionArea2D_body_entered(body):
 	if body.is_in_group(PLAYER_GROUP):
-		pass # Replace with function body.
+		print("lose")
 	
 	if body.is_in_group(PLAYER_GROUP) or body.is_in_group(LEVEL_GROUP) or body.is_in_group(BOXES_GROUP):
 		queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://box/box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://target/target.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 resource_local_to_scene = true
@@ -82,3 +83,6 @@ curve = SubResource( 5 )
 
 [node name="box" parent="." instance=ExtResource( 4 )]
 position = Vector2( 399, 423 )
+
+[node name="target" parent="." instance=ExtResource( 5 )]
+position = Vector2( 398, 373 )
